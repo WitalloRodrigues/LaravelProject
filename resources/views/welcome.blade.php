@@ -18,19 +18,19 @@
     <div id="card-container" class="row">
         @foreach($events as $event)
         <div class="card col-md-3">
-            <img src="/img/logo.gif" alt="{{ $event->title }}">
+        <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}">
             <div class="card-body">
                 <p class="card-date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                 <h5 class="card-title">{{$event->title}}</h5>
                 <p class="car-participants"> X participantes</p>
-                <div class="teste">
-                <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber mais</a>
-                <a href="/events/edit/{{$event->id}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>editar</a>
-                <form action="/events/{{ $event->id }}" method="POST">
-                {!! csrf_field() !!}
-                {!! method_field('DELETE') !!}
-                <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
-                </form>
+                <div class="row">
+                    <a href="/events/{{ $event->id }}" class="btn btn-outline-warning" ><ion-icon name="newspaper-outline"></ion-icon>Saber mais</a>
+                    <a href="/events/edit/{{$event->id}}" class="btn btn-outline-info edit-btn"><ion-icon name="create-outline"></ion-icon>editar</a>
+                    <form action="/events/{{ $event->id }}" method="POST">
+                    {!! csrf_field() !!}
+                    {!! method_field('DELETE') !!}
+                    <button type="submit" class="btn btn-outline-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -40,11 +40,15 @@ header {
   margin-bottom: 0;
   text-align: center;
   padding: 10px;
+ 
 }
 .teste{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.row a,form{
+  margin-left: 6px;
 }
 
 /* navbar */
@@ -69,7 +73,7 @@ header {
 
 /* Search Container */
 #search-container {
-  background-image: url("../img/teste.jfif");
+  background-image: url("../img/banner.jpg");
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -112,12 +116,19 @@ header {
   border-radius: 10px;
   padding: 0;
   margin: .5%;
+  transition: transform .3s ease-out;
+  border: 1px solid #CCC;
+}
+#events-container .card:hover {
+  transform: translate(0, -5px);
+  transform: scale(1.05);
 }
 
 #events-container img {
   max-height: 150px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-bottom: 1px solid #CCC;
 }
 
 .card .card-date {
