@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Event;
 
 class EventController extends Controller
 {
@@ -78,6 +77,7 @@ class EventController extends Controller
     public function update(Request $request) {
 
         $data = $request->all();
+        $data['items'] = json_encode($request->items);
 
         // Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()) {

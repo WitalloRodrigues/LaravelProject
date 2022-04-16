@@ -6,10 +6,10 @@
 
   <div class="col-md-10 offset-md-1">
     <div class="row">
-      <div id="image-container" class="col-md-6">
-        <img src="/img/logo.gif" class="img-fluid" alt="teste">
+    <div id="image-container" class="col-md-3">
+        <img src="/img/events/{{ $event->image }}" class="img-fluid" alt="{{ $event->title }}">
       </div>
-      <div id="info-container" class="col-md-6">
+      <div id="info-container" class="col-md-9">
         <h1>{{ $event->title }}</h1>
         <p class="event-city"><ion-icon name="location-outline"></ion-icon> {{ $event->city }}</p>
         <p class="events-participants"><ion-icon name="people-outline"></ion-icon> X Participantes</p>
@@ -18,15 +18,15 @@
         <a href="/" class="btn btn-info edit-btn"><ion-icon name="exit-outline"></ion-icon>voltar</a>
         <h3>O evento contara com:</h3>
         <ul id="items-list">
-        <ion-icon name="play-outline"></ion-icon>
-        @php
-          
-         echo $event->items;
-          
-        @endphp
+        @for($i = 0;$i<(count($event->items));$i++)
+          <li><ion-icon name="play-outline"></ion-icon> <span>{{ $event->items }}</span></li>
+        @endfor
+        <?php 
+        //echo '<pre>';
+        //echo var_dump($event);?>
         </ul>
       </div>
-      <div class="col-md-12" id="description-container">
+      <div class="col-md-12" id="description-container"> 
         <h3>Sobre o evento:</h3>
         <p class="event-description">{{ $event->description }}</p>
       </div>
