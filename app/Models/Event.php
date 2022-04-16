@@ -8,12 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    /**
- * The attributes that aren't mass assignable.
- *
- * @var array
- */
-    //protected $guarded = [];
 
     protected $casts = [
         'items' => 'array'
@@ -21,6 +15,7 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+    protected $guarded = [];
 
     public function user() {
         return $this->belongsTo('App\Models\User');
@@ -29,5 +24,4 @@ class Event extends Model
     public function users() {
         return $this->belongsToMany('App\Models\User');
     }
-    protected $fillable = [];
 }
